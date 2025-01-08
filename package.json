@@ -18,7 +18,8 @@
     "scripts/",
     "src/",
     "deps/",
-    "typings/"
+    "typings/",
+    "prebuild/"
   ],
   "homepage": "https://github.com/microsoft/node-pty",
   "bugs": {

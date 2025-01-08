@@ -5,25 +5,20 @@
  */
 import * as net from 'net';
 import * as path from 'path';
+import * as os from 'os';
 import { Terminal, DEFAULT_COLS, DEFAULT_ROWS } from './terminal';
 import { IProcessEnv, IPtyForkOptions, IPtyOpenOptions } from './interfaces';
 import { ArgvOrCommandLine } from './types';
 import { assign } from './utils';
+import prebuildLoader from './prebuild-loader';
 
 let pty: IUnixNative;
 let helperPath: string;
 try {
-  pty = require('../build/Release/pty.node');
+  pty = prebuildLoader();
   helperPath = '../build/Release/spawn-helper';
 } catch (outerError) {
-  try {
-    pty = require('../build/Debug/pty.node');
-    helperPath = '../build/Debug/spawn-helper';
-  } catch (innerError) {
-    console.error('innerError', innerError);
-    // Re-throw the exception from the Release require if the Debug require fails as well
-    throw outerError;
-  }
+  throw outerError;
 }
 
 helperPath = path.resolve(__dirname, helperPath);
