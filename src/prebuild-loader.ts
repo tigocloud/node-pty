@@ -1,15 +1,15 @@
 import * as os from "os";
 
 export default function getPath(){
-  let pty: IUnixNative;
-
-  if(os.arch() === 'x64'){
-    pty = require('../prebuild/pty-amd64.node');
-  }else if(os.arch() === 'arm64'){
-    pty = require('../prebuild/pty-arm64.node');
+  if(os.platform() === 'linux' && os.arch() === 'x64'){
+    return require('../prebuild/pty-linux-x64.node');
+  }else if(os.platform() === 'linux' && os.arch() === 'arm64'){
+    return require('../prebuild/pty-linux-arm64.node');
+  }else if(os.platform() === 'linux' && os.arch() === 'arm'){
+    return require('../prebuild/pty-linux-arm.node');
+  }else if(os.platform() === 'darwin' && os.arch() === 'arm64'){
+    return require('../prebuild/pty-darwin-arm64.node');
   }else{
-    throw Error(`unsupported arch ${os.arch()}`);
+    throw Error(`unsupported arch ${os.platform()}-${os.arch()}`);
   }
-
-  return pty;
 }

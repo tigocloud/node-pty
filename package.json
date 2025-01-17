@@ -1,16 +1,16 @@
 {
-  "name": "node-pty",
+  "name": "@dark495/node-pty",
   "description": "Fork pseudoterminals in Node.JS",
   "author": {
-    "name": "Microsoft Corporation"
+    "name": "Dark495"
   },
-  "version": "1.0.0",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./typings/node-pty.d.ts",
   "repository": {
     "type": "git",
-    "url": "git://github.com/microsoft/node-pty.git"
+    "url": "git://github.com/tigocloud/node-pty.git"
   },
   "files": [
     "binding.gyp",
@@ -21,9 +21,9 @@
     "typings/",
     "prebuild/"
   ],
-  "homepage": "https://github.com/microsoft/node-pty",
+  "homepage": "https://github.com/tigocloud/node-pty",
   "bugs": {
-    "url": "https://github.com/microsoft/node-pty/issues"
+    "url": "https://github.com/tigocloud/node-pty/issues"
   },
   "keywords": [
     "pty",
@@ -56,5 +56,6 @@
     "mocha": "10",
     "ps-list": "^6.0.0",
     "typescript": "^3.8.3"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
